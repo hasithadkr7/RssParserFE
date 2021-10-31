@@ -1,0 +1,32 @@
+
+<h1>RSS News Feed</h1>
+
+<div>
+    <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>No</th>
+            <td mat-cell *matCellDef="let row">{{row.id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+            <td mat-cell *matCellDef="let row">{{row.title}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="feedDescription">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Feed Description</th>
+            <td mat-cell *matCellDef="let row">{{row.feedDescription}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="updatedDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Update Date</th>
+            <td mat-cell *matCellDef="let row">{{row.updatedDate}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+
+    </table>
+
+    <mat-paginator [length]="items.length" [pageSize]="2" [pageSizeOptions]="[1,2,5,10,25,100]"></mat-paginator>
+</div>
